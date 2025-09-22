@@ -23,7 +23,7 @@ export const createOrUpdatePortfolio = async (req, res) => {
 
     let imageUrl = "";
     if (req.file) {
-      imageUrl = `http://localhost:5000/uploads/${req.file.filename}`;
+      imageUrl = `https://freelancer-backend-qu3g.onrender.com/uploads/${req.file.filename}`;
     }
 
     let portfolioItem;
