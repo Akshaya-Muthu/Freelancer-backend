@@ -1,0 +1,10 @@
+import express from 'express';
+import { isProtected } from '../middlewares/authMiddleware.js';
+import { isAdmin } from '../middlewares/adminMiddleware.js';
+const router = express.Router();
+import { registerUser, loginUser, logoutUser , changePassword} from '../controllers/userAuthController.js';
+router.route('/register').post(registerUser);
+router.route('/login').post(loginUser);
+router.route('/change-password').post(isProtected,changePassword);
+router.route('/logout').get(logoutUser);
+export default router;
