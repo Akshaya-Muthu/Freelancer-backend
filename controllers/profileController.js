@@ -48,7 +48,7 @@ export const getMyProfile = async (req, res) => {
     const profile = await clientProfile.findOne({ user_id: req.user._id });
 
     if (!profile) {
-      return res.status(404).json({ message: "Profile not found" });
+      return res.status(404).json({ message: "Create Profile" });
     }
 
     return res.status(200).json(profile);
