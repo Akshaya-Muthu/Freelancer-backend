@@ -19,6 +19,7 @@ export const forgotPassword = async (req, res) => {
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
+    console.log(user);
 
    
     const resetToken = jwt.sign(
@@ -26,8 +27,10 @@ export const forgotPassword = async (req, res) => {
       process.env.JWT_SECRET,
       { expiresIn: "15m" }
     );
+    console.log(resetToken)
 
     const resetLink = `https://freelancers-frontend.onrender.com/reset-password/${resetToken}`;
+    console.log(resetLink)
 
     const transporter = nodemailer.createTransport({
       service: "gmail",
